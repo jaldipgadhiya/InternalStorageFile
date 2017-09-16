@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Get Save & Check file buttons
         Button saveBtn = (Button) findViewById(R.id.btnSaveFile);
         Button checkBtn = (Button) findViewById(R.id.btnChkFile);
 
@@ -24,10 +25,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+
+                    //String to be written inside file
                     String s = "Hello World!!";
+                    //FileOutputStream to open and write data into it with MODE_PRIVATE.
                     FileOutputStream fileout=openFileOutput("mytextfile1.txt", MODE_PRIVATE);
+                    //OutputStreamWriter with object of FileOutputStream
                     OutputStreamWriter outputWriter=new OutputStreamWriter(fileout);
+                    //Write string into OutputStreamWriter
                     outputWriter.write(s);
+                    //Close OutputStreamWriter
                     outputWriter.close();
 
                     //display file saved message
@@ -47,8 +54,9 @@ public class MainActivity extends AppCompatActivity {
                 try {
                     Toast.makeText(getBaseContext(), getFilesDir() + "/" + "textfile1.txt",
                             Toast.LENGTH_LONG).show();
-
+                    //Get file with getFilesDir() to get directory
                     File file = new File(getFilesDir() + "/" + "textfile1.txt");
+                    //Check if file exists or not using File object
                     if(file.exists())
                     {
                         Toast.makeText(getBaseContext(), "File exists!",
