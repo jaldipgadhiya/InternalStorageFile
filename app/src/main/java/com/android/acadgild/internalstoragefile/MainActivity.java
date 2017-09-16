@@ -59,11 +59,13 @@ public class MainActivity extends AppCompatActivity {
                     //Check if file exists or not using File object
                     if(file.exists())
                     {
+                        //Toast if file exists.
                         Toast.makeText(getBaseContext(), "File exists!",
                                 Toast.LENGTH_LONG).show();
                     }
                     else
                     {
+                        //Toast if file does not exist.
                         Toast.makeText(getBaseContext(), "File does not exist!",
                                 Toast.LENGTH_LONG).show();
                     }
